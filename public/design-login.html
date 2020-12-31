@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomads Traveller</title>
+
+  <!-- INITIALIZED FONTS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Lato&family=Montserrat&family=Open+Sans&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- MY CUSTOM STYLES -->
+  <link rel="stylesheet" href="frontend/css/main.min.css">
+  <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="frontend/libraries/gijgo/css/gijgo.min.css">
+
+</head>
+<body>
+
+
+<!-- LOGIN -->
+<main class="login-container">
+    <div class="container">
+        <div class="row d-flex align-items-center page-login">
+            <div class="section-left col-12 col-md-6">
+                <h1 class="mb-4">We explore the new <br/> life much better</h1>
+                <img src="./frontend/images/login-bg-images.png" alt="login-bg-sleft-bg" class="w-75 d-none d-sm-flex">
+            </div>
+            <div class="section-right col-12 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <div class="text-center">
+                            <img src="./frontend/images/login_nomads-logo.png" alt="login-nomads-logo" class="w-50 mb-4">
+                        </div>
+
+                        <form>
+                            <div class="form-group">
+                              <label 
+                                    for     ="input-login-email">Email address</label>
+                              <input 
+                                    type    ="input-login-email" 
+                                    class   ="form-control" 
+                                    id      ="input-login-email" 
+                                    aria-describedby="input-login-email">
+                              <small 
+                                    id      ="input-label-login-email" 
+                                    class   ="form-text text-muted">Email</small>
+                            </div>
+                           <!-- password -->
+                            <div class="form-group">
+                              <label 
+                                    for="input-login-password">Password</label>
+                              <input 
+                                    type    ="password" 
+                                    class   ="form-control" 
+                                    id      ="input-login-password">
+                            </div>
+                            <!-- checbox -->
+                            <div class="form-group form-check">
+                              <input 
+                                    type    ="checkbox" 
+                                    class   ="form-check-input" 
+                                    id      ="rememberMe-login">
+                              <label 
+                                    class   ="form-check-label" 
+                                    for     ="rememberMe-login">Remember Me</label>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="btn btn-login btn-block">
+                                    Sign In
+                            </button>
+
+                            <p class="text-center mt-4">
+                                <a href="#">Forgot Password ?</a>
+                            </p>
+
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- SCRIPTS INITIALIZED -->
+<script src="frontend/libraries/jquery/jquery.min.js"></script>
+<script src="frontend/libraries/bootstrap/js/bootstrap.min.js"></script>
+<script src="frontend/libraries/retina/retina.min.js"></script>
+
+
+</body>
+</html>
