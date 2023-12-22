@@ -1,14 +1,7 @@
 <?php
-/* Intallation controller in Larave 8 */
 
-use Illuminate\Support\Facades\Route;                           /* ROUTES GET ALL INPUT   */
-// IF YOU USE [ControllerName, 'pages']
-// use App\Http\Controllers\Admin\DashboardController;         /* DASHBOARD - CONTROLLER */
-// use App\Http\Controllers\Admin\TravelPackageController;     /* TRAVEL - CONTROLLER */
-// use App\Http\Controllers\HomeController;                    /* HOME      - CONTROLLER */
-// use App\Http\Controllers\DetailController;                  /* DETAIL    - CONTROLLER */
-// use App\Http\Controllers\CheckoutController;                /* CHECKOUT  - CONTROLLER */
 
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +13,6 @@ use Illuminate\Support\Facades\Route;                           /* ROUTES GET AL
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 */
-
-
 
 
 // FOR USER  
@@ -37,7 +28,6 @@ Route::prefix('/')
         Route::post('/checkout/create/{detail_id}',  'CheckoutController@create')  ->middleware(['auth','verified'])->name('checkout-create');
         Route::get( '/checkout/remove/{detail_id}',  'CheckoutController@remove')  ->middleware(['auth','verified'])->name('checkout-remove');
         Route::get( '/checkout/confirm/{id}',        'CheckoutController@success') ->middleware(['auth','verified'])->name('checkout-success');
-
     });
 
 
@@ -52,7 +42,5 @@ Route::prefix('admin')
         Route::resource('gallery', 'galleryController');
         Route::resource('transaction', 'TransactionController');
     });
-
-
 
 Auth::routes(['verify' => true]);

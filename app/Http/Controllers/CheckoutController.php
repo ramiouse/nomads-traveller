@@ -14,8 +14,8 @@ use App\Models\TravelPackage;
 
 use Carbon\Carbon;
 
-use Midtrans\Config;
-use Midtrans\Snap;
+// use Midtrans\Config;
+// use Midtrans\Snap;
 
 class CheckoutController extends Controller
 {
@@ -96,52 +96,7 @@ class CheckoutController extends Controller
     
    
     public function success(Request $request, $id) {
-        
-        // user table relations
-        $transaction = Transaction::with(['details','travel_package.galleries','user'])->findOrFail($id);
-        $transaction->transaction_status = 'PENDING';
-
-        $transaction->save();
-
-        // Set konfigurasi midtrans
-        Config::$serverKey      = config('midtrans.serverKey');
-        Config::$isProduction   = config('midtrans.isProduction');
-        Config::$isSanitized    = config('midtrans.isSanitized');
-        Config::$is3ds          = config('midtrans.is3ds');
-
-        // Buat array untuk dikirim ke midtrans
-        $midtrans_params = [
-            'transaction_details' => [
-                'order_id'      => 'MIDTRANS-' .  $transaction_id,       
-                'gross_amount'  => (int) $transaction->transaction_total,       
-            ],
-            'customer_details' => [
-                'first_name' => $transaction->user->name, 
-                'email' => $transaction->user->email, 
-            ],
-            'enabled_payments' => ['gopay'],
-            'vtweb' => []
-        ];
-
- 
-        try {
-            // ambil halaman payment midtrans
-            $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
-
-            // redirect he halaman midtrans
-            header('Location:' . $paymentUrl);
-        } catch (Exception $e){
-            echo $e->getMessage();
-        }
-
-            
-        /* Send email e-ticket to users */
-        
-        // Mail::to($transaction->user)->send(
-        //     new TransactionSuccess($transaction)
-        // );
-        
-        // return view('pages.success');
+        return redirect()->route('checkout', $id);
     }
 
 }
